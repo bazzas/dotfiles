@@ -6,6 +6,13 @@
 # Settings
 	export VISUAL=vim
 
+	# Virtualenvwrapper settings
+	export WORKON_HOME=$HOME/.virtualenvs
+	export PROJECT_HOME=$HOME/Devel
+	export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+
+source /usr/bin/virtualenvwrapper_lazy.sh
+
 source ~/dotfiles/zsh/plugins/fixls.zsh
 
 # Completions
@@ -18,6 +25,8 @@ autoload -U compinit
 
 plugins=(
 	docker
+	virtualenv
+	virtualenvwrapper
 )
 
 for plugin ($plugins); do
@@ -33,7 +42,6 @@ source ~/dotfiles/zsh/plugins/vi-mode.plugin.zsh
 source ~/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/dotfiles/zsh/keybindings.sh
-
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -50,6 +58,7 @@ fi
 
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
+export PATH=$PATH:$HOME/scripts
 
 # User specific aliases and functions
 alias gs='git status '
@@ -58,3 +67,10 @@ alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
+
+# Automation engine aliases
+
+alias s_wh='cd /home/serhii/projects/wss-home-frontend && npm start'
+alias s_rw='cd /home/serhii/projects/remote-working-frontend && npm run start:spa'
+alias s_sl='cd /home/serhii/projects/ssa-leave-frontend && npm run start:spa'
+alias s_em='cd /home/serhii/projects/equipment-assign-frontend && npm run start:spa'
