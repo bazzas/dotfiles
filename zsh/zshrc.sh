@@ -1,6 +1,6 @@
 # Vars
 	HISTFILE=~/.zsh_history
-	SAVEHIST=1000
+	SAVEHIST=100000
 	setopt inc_append_history # To save every command before it is executed
 	setopt share_history # setopt inc_append_history
 # Settings
@@ -60,6 +60,8 @@ source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
 export PATH=$PATH:$HOME/scripts
 
+export W3MIMGDISPLAY_PATH=/usr/libexec/w3m/w3mimgdisplay 
+
 # User specific aliases and functions
 alias gs='git status '
 alias ga='git add '
@@ -68,9 +70,19 @@ alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
 
+alias cp='cp -iv'
+alias mv='mv -iv'
+
+# git bare repository to track dotfiles https://www.atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# program to create snapshots
+alias myscrot='scrot ~/Pictures/Screenshots/%Y-%m-%dT%H%M%S.png'
+
 # Automation engine aliases
 
 alias s_wh='cd /home/serhii/projects/wss-home-frontend && npm start'
 alias s_rw='cd /home/serhii/projects/remote-working-frontend && npm run start:spa'
 alias s_sl='cd /home/serhii/projects/ssa-leave-frontend && npm run start:spa'
 alias s_em='cd /home/serhii/projects/equipment-assign-frontend && npm run start:spa'
+
